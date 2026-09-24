@@ -39,7 +39,7 @@ export default function AuthPage() {
                         <div className="auth-brand">
                             <div className="auth-brand-icon">A</div>
                             <div>
-                                <h1>DaLat Travel AI</h1>
+                                <h1>DaLat Travel</h1>
                                 <p>Đăng nhập để tiếp tục trải nghiệm</p>
                             </div>
                         </div>
