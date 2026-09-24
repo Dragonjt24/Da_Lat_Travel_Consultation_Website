@@ -1,43 +1,119 @@
-import React from "react";
+import { useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const navItems = [
-  { label: "Trang chủ", href: "#" },
-  { label: "Khám phá", href: "#" },
-  { label: "So sánh", href: "#" },
-  { label: "Lịch trình", href: "#" },
-  { label: "AI Tư vấn", href: "#" },
+  { label: "Trang chủ", to: "/" },
+  { label: "Khám phá", to: "/kham-pha" },
+  { label: "So sánh", to: "/so-sanh" },
+  { label: "Lịch trình", to: "/lich-trinh" },
+  { label: "AI Tư vấn", to: "/ai-tu-van" },
 ];
 
 export default function Header() {
-  return (
-    <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center gap-2">
-          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-600 text-white font-bold">
-            A
-          </div>
-          <span className="text-base font-bold text-slate-900">
-            DaLat Travel
-          </span>
-        </div>
+  const navigate = useNavigate();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-        <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-700">
+  const closeMenu = () => setIsMobileMenuOpen(false);
+
+  return (
+    <header className="site-header">
+      <div className="container header-inner">
+        <button
+          className="brand"
+          onClick={() => {
+            navigate("/");
+            closeMenu();
+          }}
+          type="button"
+        >
+          <span className="brand-icon">F</span>
+          <span className="brand-text">DaLat Travel</span>
+        </button>
+
+        <nav className="main-nav">
           {navItems.map((item) => (
-            <a
+            <NavLink
               key={item.label}
-              href={item.href}
-              className="transition hover:text-blue-600"
+              to={item.to}
+              className={({ isActive }) =>
+                isActive ? "nav-link active" : "nav-link"
+              }
             >
               {item.label}
-            </a>
+            </NavLink>
           ))}
         </nav>
 
-        <div className="flex items-center gap-2">
-          <button className="rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-sm font-semibold text-blue-600 transition hover:bg-blue-100">
+        <div className="header-actions desktop-actions">
+          <button
+            className="btn btn-light"
+            onClick={() => {
+              navigate("/dang-nhap");
+              closeMenu();
+            }}
+            type="button"
+          >
             Đăng nhập
           </button>
-          <button className="rounded-full bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-700">
+          <button
+            className="btn btn-primary"
+            onClick={() => {
+              navigate("/dang-ky");
+              closeMenu();
+            }}
+            type="button"
+          >
+            Đăng ký
+          </button>
+        </div>
+
+        <button
+          className="mobile-menu-toggle"
+          type="button"
+          aria-label="Mở menu"
+          onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+        >
+          <span className="mobile-menu-line" />
+          <span className="mobile-menu-line" />
+          <span className="mobile-menu-line" />
+        </button>
+      </div>
+
+      <div className={isMobileMenuOpen ? "mobile-menu open" : "mobile-menu"}>
+        <nav className="mobile-nav">
+          {navItems.map((item) => (
+            <NavLink
+              key={item.label}
+              to={item.to}
+              className={({ isActive }) =>
+                isActive ? "mobile-nav-link active" : "mobile-nav-link"
+              }
+              onClick={closeMenu}
+            >
+              {item.label}
+            </NavLink>
+          ))}
+        </nav>
+
+        <div className="mobile-auth-actions">
+          <button
+            className="btn btn-light mobile-auth-btn"
+            onClick={() => {
+              navigate("/dang-nhap");
+              closeMenu();
+            }}
+            type="button"
+          >
+            Đăng nhập
+          </button>
+          <button
+            className="btn btn-primary mobile-auth-btn"
+            onClick={() => {
+              navigate("/dang-ky");
+              closeMenu();
+            }}
+            type="button"
+          >
             Đăng ký
           </button>
         </div>
