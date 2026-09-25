@@ -7,8 +7,10 @@ app = FastAPI(
 )
 
 
-@app.get("/")
+@app.get("/", tags=["Root"])
 def root():
+    """Endpoint kiểm tra trạng thái hoạt động của Server."""
     return {
-        "message": "Da Lat Tourism API is running"
+        "message": "Da Lat Tourism API is running", 
+        "status": "running"
     }
