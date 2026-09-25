@@ -121,19 +121,17 @@ Dự án được triển khai theo các giai đoạn chuẩn hóa trong quy tr�
 
 ### 🚀 Hướng dẫn nhanh chạy dự án
 ```bash
-# 1. Clone repository
-git clone [https://github.com/Dragonjt24/Da_Lat_Travel_Consultation_Website.git]
+# - Frontend:
+npm run dev
 
+# - Backend API:
+py -m venv .venv
+.venv\Scripts\activate
+py -m pip install fastapi uvicorn
+uvicorn main:app --reload
 
-# 2. Cấu hình biến môi trường
+# Database:
 
-
-# 3. Khởi chạy hệ thống bằng Docker 
-
-
-# 4. Truy cập ứng dụng:
-# - Frontend: 
-# - Backend API: 
 ```
 
 ---
