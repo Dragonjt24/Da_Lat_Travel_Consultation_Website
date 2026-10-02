@@ -9,7 +9,8 @@ app = FastAPI(
 )
 
 #include router
-app.include_router(accounts.router, prefix = "/accounts", tags = ["Accounts"])
+app.include_router(accounts.router, prefix = "/auth", tags = ["Accounts"])
+app.include_router(accounts.router, prefix = "/admin", tags = ["Admin"])
 app.include_router(tourists.router, prefix = "/tourists", tags = ["Tourists"])
 app.include_router(providers.router, prefix = "/providers", tags = ["Providers"])
 app.include_router(locations.router, prefix = "/locations", tags = ["Locations"])
