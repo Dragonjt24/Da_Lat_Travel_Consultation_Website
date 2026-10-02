@@ -4,6 +4,7 @@ import { BrowserRouter } from "react-router-dom"; // Import BrowserRouter để 
 import App from "./App"; // Import component App làm khung chính của ứng dụng.
 import "./index.css"; // Import CSS toàn cục cho toàn bộ website.
 
+
 // Tạo root React từ phần tử có id="root" trong file HTML.
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode> {/* Bật chế độ kiểm tra lỗi và cảnh báo trong môi trường phát triển. */}
