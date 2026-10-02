@@ -130,7 +130,7 @@ cd backend
 py -m venv .venv
 .app\.venv\Scripts\activate
 py -m pip install fastapi uvicorn
-uvicorn main:app --reload #Chạy chương trình backend
+uvicorn app.main:app --reload #Chạy chương trình backend
 
 
 ```
