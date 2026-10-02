@@ -121,17 +121,18 @@ Dự án được triển khai theo các giai đoạn chuẩn hóa trong quy tr�
 
 ### 🚀 Hướng dẫn nhanh chạy dự án
 ```bash
-# - Frontend:
-npm run dev
+# - Frontend: (port: 5173)
+cd frontend/src
+npm run dev #Chạy chương trình frontend
 
-# - Backend API:
+# - Backend API: (port: 8000)
+cd backend
 py -m venv .venv
-.venv\Scripts\activate
+.app\.venv\Scripts\activate
 py -m pip install fastapi uvicorn
-uvicorn main:app --reload
+uvicorn main:app --reload #Chạy chương trình backend
 
-# Database:
 
 ```
 
----
+
